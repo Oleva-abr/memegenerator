@@ -2,27 +2,70 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <div class="card">
+        <div class="card drop-shadow">
           <div class="card-body">
             <form action="">
               <div class="form-group">
-                <label for="">Selwct an image</label>
-                <input type="file" class="form-control" accept="image/*" />
+                <label for="">Select an image</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  accept="image/*"
+                  (change)="preview($event)"
+                />
               </div>
               <div class="form-group">
                 <label for="">Top Text</label>
-                <input type="text" class="form-control" name="topText" />
+                <input
+                  type="text"
+                  class="form-control"
+                  name="topText"
+                  [(ngModel)]="topText"
+                  (keyup)="drawText()"
+                />
               </div>
 
               <div class="form-group">
                 <label for="">Bottom Text</label>
-                <input type="text" class="form-control" name="bottomText" />
+                <input
+                  type="text"
+                  class="form-control"
+                  name="bottomText"
+                  [(ngModel)]="bottomText"
+                  (keyup)="drawText()"
+                />
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Text Color</label>
+                    <color-chrome></color-chrome>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Background Color</label>
+                    <color-chrome></color-chrome>
+                  </div>
+                </div>
+                <button class="btn btn-outline-primary btn-block mt-5">
+                  Download
+                </button>
               </div>
             </form>
           </div>
         </div>
       </div>
-      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <canvas
+          class="drop-shadow"
+          #memeCanvas
+          width="700"
+          height="800"
+          style="background-color: f9f9fd"
+        ></canvas>
+      </div>
     </div>
   </div>
 </div>
