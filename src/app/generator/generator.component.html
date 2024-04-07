@@ -40,16 +40,23 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="">Text Color</label>
-                    <color-chrome></color-chrome>
+                    <color-chrome
+                      (onChangeComplete)="canvasTextColor($event)"
+                    ></color-chrome>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="">Background Color</label>
-                    <color-chrome></color-chrome>
+                    <color-chrome
+                      (onChangeComplete)="canvasBgColor($event)"
+                    ></color-chrome>
                   </div>
                 </div>
-                <button class="btn btn-outline-primary btn-block mt-5">
+                <button
+                  class="btn btn-outline-primary btn-block mt-5"
+                  (click)="downloadImg()"
+                >
                   Download
                 </button>
               </div>
